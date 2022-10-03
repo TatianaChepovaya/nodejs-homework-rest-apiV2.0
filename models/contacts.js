@@ -32,7 +32,7 @@ const addContact = async ({ name, email, phone }) => {
   const contacts = await listContacts();
   const newContact = {
     id: randomUUID(),
-    name,
+    name, 
     email,
     phone
   };

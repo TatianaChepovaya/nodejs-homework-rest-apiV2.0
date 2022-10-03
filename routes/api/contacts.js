@@ -20,7 +20,25 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
-
+router.get("/:contactId", async (req, res, next) => {
+  try {
+    const { contactId } = req.params;
+    console.log(contactId);
+    const result = await contactsOperations.getContactById(contactId);
+    if (!result) {
+      throw new NotFound("Not found");
+    }
+    res.json({
+      status: "success",
+      code: 200,
+      data: {
+        result
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 router.post("/", async (req, res, next) => {
   try {
     const { error } = joiSchema.validate(req.body);
