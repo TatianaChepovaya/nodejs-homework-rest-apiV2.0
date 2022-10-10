@@ -12,7 +12,7 @@ const contactSchema = Schema(
   {
     name: {
       type: String,
-      required: [true, "Set name for contact"]
+      required: [true, "Set Name for contact"]
     },
     email: {
       type: String
