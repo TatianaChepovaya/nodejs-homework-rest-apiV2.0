@@ -12,7 +12,7 @@ const contactSchema = Schema(
   {
     name: {
       type: String,
-      required: [true, "Set Name for contact"]
+      required: [true, "Set name for contact"]
     },
     email: {
       type: String
@@ -23,12 +23,16 @@ const contactSchema = Schema(
     favorite: {
       type: Boolean,
       default: false
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user"
     }
   },
   { versionKey: false, timestamps: true }
 );
 
-const Contact = model("contacts", contactSchema);
+const Contact = model("contact", contactSchema);
 
 module.exports = {
   Contact,
