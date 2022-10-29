@@ -10,7 +10,6 @@ const listContacts = async (req, res) => {
     .skip(skip)
     .limit(+limit)
     .populate("owner", "email");
-  // console.log('HERE>>>>>>>>>>>>>')
   res.json({
     status: "success",
     code: 200,
